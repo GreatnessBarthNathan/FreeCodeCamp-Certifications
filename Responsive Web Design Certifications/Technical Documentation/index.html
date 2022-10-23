@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Technical Documentation</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav id="navbar">
+        <header>Cascading Style Sheet</header>
+        <ul>
+          <li><a href="#introduction" class="nav-link">Introduction</a></li>
+          <li>
+            <a href="#syntax" class="nav-link">Syntax</a>
+          </li>
+          <li><a href="#selectors" class="nav-link">Selectors</a></li>
+          <li><a href="#comments" class="nav-link">Comments</a></li>
+          <li>
+            <a href="#colors" class="nav-link">Colors</a>
+          </li>
+          <li>
+            <a href="#css_backgrounds" class="nav-link">CSS Backgrounds</a>
+          </li>
+          <li><a href="#css_borders" class="nav-link">CSS Borders</a></li>
+          <li>
+            <a href="#css_margins" class="nav-link">CSS Margins</a>
+          </li>
+          <li>
+            <a href="#css_padding" class="nav-link">CSS Padding</a>
+          </li>
+          <li>
+            <a href="#css_outline" class="nav-link">CSS Outline</a>
+          </li>
+          <li>
+            <a href="#css_box_model" class="nav-link">CSS Box Model</a>
+          </li>
+          <li>
+            <a href="#css_fonts" class="nav-link">CSS Fonts</a>
+          </li>
+          <li>
+            <a href="#reference" class="nav-link">Reference</a>
+          </li>
+        </ul>
+      </nav>
+      <main id="main-doc">
+        <section class="main-section" id="introduction">
+          <header>Introduction</header>
+          <div>
+            <p>
+              CSS is the language we use to style a Web page. CSS is used to
+              define styles for your web pages, including the design, layout and
+              variations in display for different devices and screen sizes.
+            </p>
+            <ul>
+              <li>CSS stands for Cascading Style Sheets</li>
+              <li>
+                CSS describes how HTML elements are to be displayed on screen,
+                paper, or in other media
+              </li>
+              <li>
+                CSS saves a lot of work. It can control the layout of multiple
+                web pages all at once
+              </li>
+              <li>External stylesheets are stored in CSS files</li>
+            </ul>
+            <div>
+              <p>CSS Examples</p>
+              <code>
+                <pre>
+ body {
+       background-color: lightblue; 
+      }
+             </pre
+                >
+              </code>
+              <code>
+                <pre>
+    h1 { 
+        color: white; 
+        text-align: center; 
+       } 
+              </pre
+                >
+              </code>
+            </div>
+          </div>
+        </section>
+        <section class="main-section" id="syntax">
+          <header>Syntax</header>
+          <div>
+            <p>A CSS rule consists of a selector and a declaration block.</p>
+            <ul>
+              <li>
+                The selector points to the HTML element you want to style.
+              </li>
+              <li>
+                The declaration block contains one or more declarations
+                separated by semicolons.
+              </li>
+              <li>
+                Each declaration includes a CSS property name and a value,
+                separated by a colon.
+              </li>
+              <li>
+                Multiple CSS declarations are separated with semicolons, and
+                declaration blocks are surrounded by curly braces.
+              </li>
+            </ul>
+            <div>
+              <p>Example</p>
+              <code>
+                <pre>
+    p {
+       color: red;
+       text-align: center;
+      }
+              </pre
+                >
+              </code>
+
+              <p>
+                p is a selector in CSS (it points to the HTML element you want
+                to style:
+              </p>
+              <p>color is a property, and red is the property value</p>
+              <p>text-align is a property, and center is the property value</p>
+            </div>
+          </div>
+        </section>
+        <section class="main-section" id="selectors">
+          <header>Selectors</header>
+          <div>
+            <p>
+              CSS selectors are used to "find" (or select) the HTML elements you
+              want to style.
+            </p>
+            <p>We can divide CSS selectors into five categories:</p>
+            <ul>
+              <li>
+                Simple selectors (select elements based on name, id, class)
+              </li>
+              <li>
+                Combinator selectors (select elements based on a specific
+                relationship between them)
+              </li>
+              <li>
+                Pseudo-class selectors (select elements based on a certain
+                state)
+              </li>
+              <li>
+                Pseudo-elements selectors (select and style a part of an
+                element)
+              </li>
+              <li>
+                Attribute selectors (select elements based on an attribute or
+                attribute value)
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="main-section" id="comments">
+          <header>Comments</header>
+          <div>
+            <p>
+              CSS comments are not displayed in the browser, but they can help
+              document your source code. Comments are used to explain the code,
+              and may help when you edit the source code at a later date.
+              Comments are ignored by browsers. A CSS comment is placed inside
+              the 'style' element, and starts with /* and ends with */
+            </p>
+            <div>
+              <p>Example</p>
+              <p>/* This is a single-line comment */</p>
+            </div>
+          </div>
+        </section>
+        <section class="main-section" id="colors">
+          <header>Colors</header>
+          <div>
+            <p>
+              Colors are specified using predefined color names, or RGB, HEX,
+              HSL, RGBA, HSLA values. In CSS, a color can be specified by using
+              a predefined color name: orange, blue, green, red, cyan, purple,
+              black, white.
+            </p>
+            <p>CSS colors vary:</p>
+            <ul>
+              <li>Background Color</li>
+              <li>Text Color</li>
+              <li>Border Color</li>
+            </ul>
+          </div>
+        </section>
+        <section class="main-section" id="css_backgrounds">
+          <header>CSS Backgrounds</header>
+          <div>
+            <p>
+              The CSS background properties are used to add background effects
+              for elements.
+            </p>
+            <p>The following are CSS background properties</p>
+            <ul>
+              <li>
+                background-color: The background-color property specifies the
+                background color of an element.
+              </li>
+              <li>
+                background-image: The background-image property specifies an
+                image to use as the background of an element. By default, the
+                image is repeated so it covers the entire element.
+              </li>
+              <li>
+                background-repeat: By default, the background-image property
+                repeats an image both horizontally and vertically.
+              </li>
+              <li>
+                background-attachment: The background-attachment property
+                specifies whether the background image should scroll or be fixed
+                (will not scroll with the rest of the page)
+              </li>
+              <li>
+                background-position: The background-position property is used to
+                specify the position of the background image.
+              </li>
+              <li>
+                background (shorthand property): To shorten the code, it is also
+                possible to specify all the background properties in one single
+                property. This is called a shorthand property. Instead of
+                writing: background-color, background-image, background-repeat,
+                background-position, You can use the shorthand property
+                background
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="main-section" id="css_borders">
+          <header>CSS Borders</header>
+          <div>
+            <p>
+              The CSS border properties allow you to specify the style, width,
+              and color of an element's border.
+            </p>
+            <ul>
+              <li>
+                The border-style property specifies what kind of border to
+                display. The border-style property can have from one to four
+                values (for the top border, right border, bottom border, and the
+                left border).
+              </li>
+              <li>
+                The border-width property specifies the width of the four
+                borders. The width can be set as a specific size (in px, pt, cm,
+                em, etc) or by using one of the three pre-defined values: thin,
+                medium, or thick
+              </li>
+              <li>
+                The border-color property is used to set the color of the four
+                borders. If border-color is not set, it inherits the color of
+                the element.
+              </li>
+            </ul>
+            <div>
+              <p>Examples</p>
+              <code>
+                <pre>
+ p.one {
+       border-style: solid;
+       border-color: red;
+       }
+             </pre
+                >
+              </code>
+              <code>
+                <pre>
+ p.one {
+       border-style: solid;
+       border-color: red;
+       }
+             </pre
+                >
+              </code>
+              <code>
+                <pre>
+               
+ p.two {
+    border-style: solid;
+    border-color: green;
+    }
+              </pre
+                >
+              </code>
+            </div>
+          </div>
+        </section>
+        <section class="main-section" id="css_margins">
+          <header>CSS Margins</header>
+          <div>
+            <p>
+              Margins are used to create space around elements, outside of any
+              defined borders. The CSS margin properties are used to create
+              space around elements, outside of any defined borders. With CSS,
+              you have full control over the margins. There are properties for
+              setting the margin for each side of an element (top, right,
+              bottom, and left).
+            </p>
+            <p>
+              CSS has properties for specifying the margin for each side of an
+              element:
+            </p>
+            <ul>
+              <li>margin-top</li>
+              <li>margin-bottom</li>
+              <li>margin-right</li>
+              <li>margin-left</li>
+            </ul>
+            <div>
+              <p>Example</p>
+              <code>
+                <pre>
+    p {
+       margin-top: 100px;
+       margin-bottom: 100px;
+       margin-right: 150px;
+       margin-left: 80px;
+     }
+            </pre
+                >
+              </code>
+            </div>
+          </div>
+        </section>
+        <section class="main-section" id="css_padding">
+          <header>CSS Padding</header>
+          <div>
+            <p>
+              Padding is used to create space around an element's content,
+              inside of any defined borders. The CSS padding properties are used
+              to generate space around an element's content, inside of any
+              defined borders. With CSS, you have full control over the padding.
+              There are properties for setting the padding for each side of an
+              element (top, right, bottom, and left).
+            </p>
+            <p>
+              CSS has properties for specifying the padding for each side of an
+              element:
+            </p>
+            <ul>
+              <li>padding-top</li>
+              <li>padding-right</li>
+              <li>padding-bottom</li>
+              <li>padding-left</li>
+            </ul>
+            <div>
+              <p>Example</p>
+              <code>
+                <pre>
+ div {
+      padding-top: 50px;
+      padding-right: 30px;
+      padding-bottom: 50px;
+      padding-left: 80px;
+     }
+            </pre
+                >
+              </code>
+            </div>
+          </div>
+        </section>
+        <section class="main-section" id="css_outline">
+          <header>CSS Outline</header>
+          <div>
+            <p>
+              An outline is a line drawn outside the element's border. An
+              outline is a line that is drawn around elements, OUTSIDE the
+              borders, to make the element "stand out".
+            </p>
+            <p>CSS has the following outline properties:</p>
+            <ul>
+              <li>outline-style</li>
+              <li>outline-color</li>
+              <li>outline-width</li>
+              <li>outline-offset</li>
+              <li>outline</li>
+            </ul>
+          </div>
+        </section>
+        <section class="main-section" id="css_box_model">
+          <header>CSS Box Model</header>
+          <div>
+            <p>
+              In CSS, the term "box model" is used when talking about design and
+              layout. The CSS box model is essentially a box that wraps around
+              every HTML element. It consists of: margins, borders, padding, and
+              the actual content.
+            </p>
+            <p>Explanation of the different parts:</p>
+            <ul>
+              <li>
+                Content - The content of the box, where text and images appear
+              </li>
+              <li>
+                Padding - Clears an area around the content. The padding is
+                transparent
+              </li>
+              <li>
+                Border - A border that goes around the padding and content
+              </li>
+              <li>
+                Margin - Clears an area outside the border. The margin is
+                transparent
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="main-section" id="css_fonts">
+          <header>CSS FONTS</header>
+          <div>
+            <p>
+              Choosing the right font has a huge impact on how the readers
+              experience a website. The right font can create a strong identity
+              for your brand. Using a font that is easy to read is important.
+              The font adds value to your text. It is also important to choose
+              the correct color and text size for the font.
+            </p>
+            <p>In CSS there are five generic font families:</p>
+            <ul>
+              <li>
+                Serif fonts have a small stroke at the edges of each letter.
+                They create a sense of formality and elegance.
+              </li>
+              <li>
+                Sans-serif fonts have clean lines (no small strokes attached).
+                They create a modern and minimalistic look.
+              </li>
+              <li>
+                Monospace fonts - here all the letters have the same fixed
+                width. They create a mechanical look.
+              </li>
+              <li>Cursive fonts imitate human handwriting.</li>
+              <li>Fantasy fonts are decorative/playful fonts.</li>
+            </ul>
+          </div>
+        </section>
+        <section class="main-section" id="reference">
+          <header>Reference</header>
+          <div>
+            <p>
+              All documentation in this page were taken from
+              <a href="https://www.w3schools.com/css" target="_blank"
+                >W3Schools</a
+              >
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

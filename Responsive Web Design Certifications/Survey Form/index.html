@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Survey Form</title>
+  </head>
+  <body>
+    <section class="wrapper">
+      <!-- HEADER -->
+      <header>
+        <h1 id="title">GBN Water Technologies</h1>
+        <p id="description">
+          We appreciate your contribution to our improvement. Help us serve you
+          better.
+        </p>
+      </header>
+      <!-- FORM -->
+      <form id="survey-form">
+        <div class="name">
+          <label for="name" id="name-label">Name</label>
+          <input type="text" id="name" placeholder="Enter Name" required />
+        </div>
+        <div class="email">
+          <label for="email" id="email-label">Email</label>
+          <input type="email" id="email" placeholder="Enter Email" required />
+        </div>
+        <div class="number">
+          <label for="number" id="number-label"
+            >How long have you been our customer? (Years)</label
+          >
+          <input
+            type="number"
+            id="number"
+            max="15"
+            min="1"
+            placeholder="E.g 2"
+            required
+          />
+        </div>
+        <!-- Select Options -->
+        <div class="select">
+          <p>What is your preferred water pump product?</p>
+          <select name="products" id="dropdown">
+            <option value="Select Product">Select Product</option>
+            <option value="Whale">Whale</option>
+            <option value="Master">Master</option>
+            <option value="Astra">Astra</option>
+            <option value="Oceanic">Oceanic</option>
+            <option value="Hydropoint">Hydropoint</option>
+          </select>
+        </div>
+        <!-- Radio Options -->
+        <div class="radio">
+          <p>Who would you say is your favorite customer service agent?</p>
+          <div class="radio-btns">
+            <div><input type="radio" name="person" value="Nkechi" />Nkechi</div>
+            <div>
+              <input type="radio" name="person" value="Chinonye" />Chinonye
+            </div>
+            <div>
+              <input type="radio" name="person" value="Rebecca" />Rebecca
+            </div>
+          </div>
+        </div>
+        <!-- Check Boxes -->
+        <div class="check-box">
+          <p>What would you like us to improve?</p>
+          <div>
+            <input type="checkbox" value="Discount Allowed" id="" />Discount
+            Allowed
+          </div>
+          <div>
+            <input type="checkbox" value="Customer Bonuses" id="" />Customer
+            Bonuses
+          </div>
+          <div>
+            <input type="checkbox" value="Resumption Time" id="" />Resumption
+            Time
+          </div>
+          <div>
+            <input type="checkbox" value="Closing Time" id="" />Closing Time
+          </div>
+          <div><input type="checkbox" value="Pricing" id="" />Pricing</div>
+          <div>
+            <input type="checkbox" value="Customer Relations" id="" />Customer
+            Relations
+          </div>
+        </div>
+        <!-- Text Area -->
+        <div class="text">
+          <p>Tell us what you think about us</p>
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+        <button id="submit">Submit</button>
+      </form>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 
+WRAPPER
+*/
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: whitesmoke;
+}
+
+/* 
+NAVBAR
+*/
+#navbar {
+  border-right: 4px solid darkslategray;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+#navbar header {
+  font-size: 25px;
+  font-weight: bold;
+  color: darkslategray;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#navbar ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  height: 90%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#navbar ul li {
+  padding: 15px 20px;
+  border-top: 1px solid darkslategray;
+  display: flex;
+}
+.nav-link {
+  text-decoration: none;
+  color: darkslategray;
+  font-size: 20px;
+  width: 100%;
+}
+
+/* 
+MAIN DOC
+*/
+#main-doc {
+  padding: 50px 50px;
+  width: 80%;
+  font-size: 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  overflow: scroll;
+  padding-bottom: 100px;
+  scroll-behavior: smooth;
+}
+.main-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: darkslategray;
+}
+.main-section header {
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+}
+.main-section div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 20px;
+}
+.main-section ul {
+  display: flex;
+  flex-direction: column;
+  padding-left: 50px;
+}
+.main-section ul li {
+  line-height: 30px;
+}
+pre {
+  background: darkgray;
+  color: black;
+  padding: 10px 0;
+  font-size: 14px;
+  width: 100%;
+  overflow: scroll;
+}
+.main-section p {
+  line-height: 30px;
+}
+
+/* 
+===========
+MEDIA QUERY
+===========
+*/
+@media (max-width: 1024px) {
+  #navbar {
+    width: 30%;
+  }
+  #main-doc {
+    width: 70%;
+  }
+}
+
+@media (max-width: 815px) {
+  .wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  #navbar {
+    border-right: none;
+    border-bottom: 4px solid darkslategray;
+    width: 100%;
+    height: 250px;
+    padding-top: 10px;
+    gap: 0;
+  }
+  #navbar header {
+    padding: 20px;
+    border-bottom: 1px solid black;
+  }
+  #main-doc {
+    width: 100%;
+    font-size: 17px;
+    height: auto;
+    overflow: hidden;
+    padding: 50px 30px;
+  }
+}
+@media (max-width: 570px) {
+  .nav-link {
+    font-size: 16px;
+  }
+  #main-doc {
+    font-size: 15px;
+    height: auto;
+    overflow: hidden;
+    padding: 50px 30px;
+  }
+
+  .main-section div {
+    padding-left: 0;
+  }
+  .main-section ul {
+    padding-left: 20px;
+  }
+}
