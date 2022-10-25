@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: lightblue;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+}
+
+/* 
+QUOTE BOX
+*/
+#quote-box {
+  background: white;
+  width: 50%;
+  border-radius: 10px;
+  padding: 40px;
+  color: darkslategray;
+}
+
+#text {
+  font-size: 18px;
+  line-height: 30px;
+}
+#author {
+  text-align: right;
+  font-size: 18px;
+  color: darkslategray;
+  font-style: italic;
+}
+#buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 15px;
+}
+#tweet-quote {
+  background: lightblue;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 15px;
+}
+#new-quote {
+  background: lightblue;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: none;
+  font-size: 15px;
+  color: blue;
+}
+
+/* 
+=============
+MEDIA QUERY
+=============
+*/
+@media (max-width: 1024px) {
+  #quote-box {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  #quote-box {
+    width: 80%;
+  }
+}
+
+@media (max-width: 570px) {
+  #quote-box {
+    width: 90%;
+    padding: 20px;
+  }
+  #text {
+    font-size: 16px;
+  }
+}
