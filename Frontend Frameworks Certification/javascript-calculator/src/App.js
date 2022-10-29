@@ -128,9 +128,6 @@ function App() {
 
   //handle output
   function handleOuput() {
-    // if (calculatorData !== "0") {
-    //   setOutput(calculatorData)
-    // }
     setOutput(calculatorData)
   }
   useEffect(() => {

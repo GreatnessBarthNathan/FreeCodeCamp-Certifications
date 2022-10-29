@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: lightblue;
+}
+#container {
+  width: 350px;
+  background: darkslategray;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+}
+section {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+}
+#break-label h2,
+#session-label h2 {
+  font-size: 20px;
+}
+.control-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.control-container button {
+  background: transparent;
+  border: none;
+  color: whitesmoke;
+  border: 1px solid lightblue;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+article {
+  margin: auto;
+  margin-top: 20px;
+  width: 60%;
+  border: 2px solid yellow;
+  padding: 15px;
+  border-radius: 10px;
+}
+#timer-label {
+  font-size: 20px;
+}
+#time-left {
+  margin: 10px;
+}
+aside {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+aside button {
+  background: transparent;
+  padding: 5px;
+  border: 1px solid yellow;
+  color: white;
+}
