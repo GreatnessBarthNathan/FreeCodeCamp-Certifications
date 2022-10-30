@@ -3,11 +3,13 @@ import Sections from "./Sections"
 import Timer from "./Timer"
 
 function App() {
+  const [breakLength, setBreakLength] = React.useState(5)
+  const [sessionLength, setSessionLength] = React.useState(25)
   return (
     <div id='app'>
       <div id='container'>
         <h1>25+5 Clock</h1>
-        <Sections />
+        <Sections actions={{ breakLength, sessionLength }} />
         <Timer />
       </div>
       <audio
