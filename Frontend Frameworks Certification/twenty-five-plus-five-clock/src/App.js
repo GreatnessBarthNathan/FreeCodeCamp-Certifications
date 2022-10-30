@@ -19,14 +19,11 @@ function App() {
   }
 
   // set timeout
-  function timeout() {
-    const timeout = setTimeout(() => {
-      if (timeLeft && play) {
-        setTimeLeft(timeLeft - 1)
-      }
-    }, 1000)
-    return timeout
-  }
+  let timeout = setTimeout(() => {
+    if (timeLeft && play) {
+      setTimeLeft(timeLeft - 1)
+    }
+  }, 1000)
 
   // handle play
   function handlePlay() {
@@ -52,16 +49,16 @@ function App() {
 
   function clock() {
     if (play) {
-      timeout()
+      timeout = timeout
       resetTimer()
     } else {
-      clearTimeout(timeout())
+      clearTimeout(timeout)
     }
   }
 
   // handle reset
   function handleReset() {
-    clearTimeout(timeout())
+    clearTimeout(timeout)
     setPlay(false)
     setTimeLeft(1500)
     setBreakLength(5)
