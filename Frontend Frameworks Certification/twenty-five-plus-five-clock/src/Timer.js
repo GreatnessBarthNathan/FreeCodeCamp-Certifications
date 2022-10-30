@@ -1,20 +1,15 @@
 import React from "react"
 
-function Timer({ actions }) {
-  const { title, handlePlay, handleReset, timeFormatter } = actions
+function Timer() {
   return (
     <article>
-      <h3 id='timer-label'>{title}</h3>
+      <h3 id='timer-label'>session</h3>
       <div>
-        <h1 id='time-left'>{timeFormatter()}</h1>
+        <h1 id='time-left'>25:00</h1>
       </div>
       <aside>
-        <button id='start_stop' onClick={handlePlay}>
-          Start/Stop
-        </button>
-        <button id='reset' onClick={handleReset}>
-          Reset
-        </button>
+        <button id='start_stop'>Start/Stop</button>
+        <button id='reset'>Reset</button>
       </aside>
     </article>
   )
