@@ -18,7 +18,7 @@ function App() {
     return `${formattedMins}:${formattedSecs}`
   }
 
-  // create a reset timer
+  // reset timer
   function resetTimer() {
     const audio = document.getElementById("beep")
     if (!timeLeft && timingType === "SESSION") {
