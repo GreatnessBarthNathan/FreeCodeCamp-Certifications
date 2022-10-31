@@ -8,8 +8,8 @@ function App() {
   const [timeLeft, setTimeLeft] = React.useState(1500)
 
   function formatTime() {
-    let mins = timeLeft / 60
-    let secs = timeLeft % 60
+    let mins = Math.floor(timeLeft / 60)
+    let secs = timeLeft - mins * 60
   }
 
   function increaseSession() {}
