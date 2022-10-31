@@ -17,37 +17,36 @@ function App() {
     return `${formattedMins}:${formattedSecs}`
   }
 
+  // set timeout
+  let timeout = setTimeout(() => {
+    if (timeLeft && play) {
+      setTimeLeft(timeLeft - 1)
+    }
+  }, 1000)
+
   function startStop() {
     setPlay(!play)
   }
 
-  let timeout = setTimeout(() => {
-    if (timeLeft && play) {
-      setTimeLeft(timeLeft - 1)
+  function count() {
+    if (play) {
+      timeout = timeout
     } else {
       clearTimeout(timeout)
     }
-  }, 1000)
-  function count() {
-    let interval
-    if (play) {
-      interval = setInterval(() => {
-        setTimeLeft(timeLeft - 1)
-      }, 1000)
-    } else {
-      clearInterval(interval)
-    }
   }
 
-  React.useEffect(() => {
-    count()
-  }, [timeLeft, play])
   // Reset time
   function reset() {
+    setPlay(false)
     setBreakLength(5)
     setSessionLength(25)
     setTimeLeft(1500)
   }
+
+  React.useEffect(() => {
+    count()
+  }, [timeLeft, play, timeout])
 
   // increase session length
   function increaseSession() {
