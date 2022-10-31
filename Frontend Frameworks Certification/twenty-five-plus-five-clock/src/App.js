@@ -20,6 +20,14 @@ function App() {
   function startStop() {
     setPlay(!play)
   }
+
+  let timeout = setTimeout(() => {
+    if (timeLeft && play) {
+      setTimeLeft(timeLeft - 1)
+    } else {
+      clearTimeout(timeout)
+    }
+  }, 1000)
   function count() {
     let interval
     if (play) {
