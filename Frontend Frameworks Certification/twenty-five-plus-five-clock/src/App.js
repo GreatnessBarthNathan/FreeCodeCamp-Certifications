@@ -30,6 +30,7 @@ function App() {
       setTimeLeft(sessionLength * 60)
       setTimingType("SESSION")
       audio.pause()
+      audio.currentTime = 0
     }
   }
   // set timeout
@@ -60,8 +61,10 @@ function App() {
     setBreakLength(5)
     setSessionLength(25)
     setTimeLeft(1500)
+    setTimingType("SESSION")
     const audio = document.getElementById("beep")
     audio.pause()
+    audio.currentTime = 0
   }
 
   React.useEffect(() => {
@@ -109,6 +112,7 @@ function App() {
             decreaseSession,
             increaseBreak,
             decreaseBreak,
+            play,
           }}
         />
         <Timer actions={{ formatTime, handleReset, startStop, timingType }} />
