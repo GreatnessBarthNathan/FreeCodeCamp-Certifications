@@ -115,7 +115,9 @@ function App() {
             play,
           }}
         />
-        <Timer actions={{ formatTime, handleReset, startStop, timingType }} />
+        <Timer
+          actions={{ formatTime, handleReset, startStop, timingType, play }}
+        />
       </div>
       <audio
         id='beep'

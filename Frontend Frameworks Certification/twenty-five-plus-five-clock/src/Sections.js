@@ -1,4 +1,5 @@
 import React from "react"
+import { FaArrowUp, FaArrowDown } from "react-icons/fa"
 
 function Sections({ actions }) {
   const {
@@ -16,11 +17,11 @@ function Sections({ actions }) {
         <h2>Break Length</h2>
         <div className='control-container'>
           <button disabled={play} id='break-decrement' onClick={decreaseBreak}>
-            dec
+            <FaArrowDown />
           </button>
           <h2 id='break-length'>{breakLength}</h2>
           <button disabled={play} id='break-increment' onClick={increaseBreak}>
-            inc
+            <FaArrowUp />
           </button>
         </div>
       </div>
@@ -32,7 +33,7 @@ function Sections({ actions }) {
             id='session-decrement'
             onClick={decreaseSession}
           >
-            dec
+            <FaArrowDown />
           </button>
           <h2 id='session-length'>{sessionLength}</h2>
           <button
@@ -40,7 +41,7 @@ function Sections({ actions }) {
             id='session-increment'
             onClick={increaseSession}
           >
-            inc
+            <FaArrowUp />
           </button>
         </div>
       </div>

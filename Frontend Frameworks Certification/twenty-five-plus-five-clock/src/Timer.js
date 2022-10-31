@@ -1,7 +1,10 @@
 import React from "react"
+import { BiReset } from "react-icons/bi"
+import { CgPlayPauseO } from "react-icons/cg"
+import { FiPlay } from "react-icons/fi"
 
 function Timer({ actions }) {
-  const { formatTime, handleReset, startStop, timingType } = actions
+  const { formatTime, handleReset, startStop, timingType, play } = actions
   return (
     <article>
       <h3 id='timer-label'>{timingType}</h3>
@@ -10,10 +13,10 @@ function Timer({ actions }) {
       </div>
       <aside>
         <button id='start_stop' onClick={startStop}>
-          Start/Stop
+          {play ? <CgPlayPauseO /> : <FiPlay />}
         </button>
         <button id='reset' onClick={handleReset}>
-          Reset
+          <BiReset />
         </button>
       </aside>
     </article>
