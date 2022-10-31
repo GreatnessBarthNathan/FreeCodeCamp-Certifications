@@ -5,6 +5,14 @@ import Timer from "./Timer"
 function App() {
   const [breakLength, setBreakLength] = React.useState(5)
   const [sessionLength, setSessionLength] = React.useState(25)
+  const [timeLeft, setTimeLeft] = React.useState(1500)
+
+  function formatTime() {
+    let mins = timeLeft / 60
+    let secs = timeLeft % 60
+  }
+
+  function increaseSession() {}
   return (
     <div id='app'>
       <div id='container'>
