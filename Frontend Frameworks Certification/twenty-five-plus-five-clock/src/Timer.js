@@ -3,19 +3,17 @@ import { BiReset } from "react-icons/bi"
 import { CgPlayPauseO } from "react-icons/cg"
 import { FiPlay } from "react-icons/fi"
 
-function Timer({ actions }) {
-  const { formatTime, handleReset, startStop, timingType, play } = actions
+function Timer() {
+  const play = false
   return (
     <article>
-      <h3 id='timer-label'>{timingType}</h3>
+      <h3 id='timer-label'></h3>
       <div>
-        <h1 id='time-left'>{formatTime()}</h1>
+        <h1 id='time-left'></h1>
       </div>
       <aside>
-        <button id='start_stop' onClick={startStop}>
-          {play ? <CgPlayPauseO /> : <FiPlay />}
-        </button>
-        <button id='reset' onClick={handleReset}>
+        <button id='start_stop'>{play ? <CgPlayPauseO /> : <FiPlay />}</button>
+        <button id='reset'>
           <BiReset />
         </button>
       </aside>
