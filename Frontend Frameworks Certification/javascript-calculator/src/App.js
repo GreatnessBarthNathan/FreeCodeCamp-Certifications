@@ -1,146 +1,153 @@
-import React, { useState, useEffect } from "react"
-import { data, numbers, operators } from "./data"
-import Display from "./Display"
-import Keyboard from "./Keyboard"
+import React from "react"
 
 function App() {
-  const [input, setInput] = useState(0)
-  const [output, setOutput] = useState("")
-  const [calculatorData, setCalculatorData] = useState("")
-
-  // handle submit
-  function handleEquals() {
-    const total = eval(calculatorData)
-    setInput(`${total}`)
-    setOutput(`${total}`)
-    setCalculatorData(`${total}`)
-  }
+  let [input, setInput] = React.useState("0")
+  const [output, setOutput] = React.useState("")
+  const [allowDec, setAllowDec] = React.useState(true)
 
   // handle clear
   function handleClear() {
-    setOutput("")
     setInput("0")
-    setCalculatorData("")
+    setOutput("")
+    setAllowDec(true)
   }
 
-  // handle numbers
-  function handleNumbers(value) {
-    if (!calculatorData.length) {
-      setInput(`${value}`)
-      setCalculatorData(`${value}`)
-    } else {
-      if (value === 0 && (calculatorData === "0" || input === "0")) {
-        setCalculatorData(`${calculatorData}`)
-      } else {
-        const last = calculatorData.charAt(calculatorData.length - 1)
-        const isLastOperator = last === "*" || operators.includes(last)
-        setInput(isLastOperator ? `${value}` : `${input}${value}`)
-        setCalculatorData(`${calculatorData}${value}`)
-      }
+  // handle number
+  function handleNumber(e) {
+    if (input === "0") {
+      setInput(e.target.innerText)
     }
+    if (input !== "0") {
+      setInput((input += e.target.innerText))
+    }
+  }
+
+  // handle operator
+  function handleOperator(e) {
+    let operator = e.target.innerText
+    let last = input.charAt(input.length - 1)
+    let before = input.charAt(input.length - 2)
+    let lastIsOpr = last === "*" || last === "+" || last === "-" || last === "/"
+    let beforeIsOpr =
+      before === "*" || before === "+" || before === "-" || before === "/"
+
+    if (!lastIsOpr) {
+      setInput(input + operator)
+    }
+    if (lastIsOpr) {
+      let result = input.slice(0, input.length - 1)
+      setInput(result + operator)
+    }
+    if (lastIsOpr && operator === "-") {
+      setInput(input + "-")
+    }
+    if (beforeIsOpr && last === "-" && operator === "-") {
+      setInput(input)
+    }
+    if (beforeIsOpr && last === "-" && operator !== "-") {
+      let result = input.slice(0, input.length - 2)
+      setInput(result + operator)
+      console.log(result)
+    }
+    setAllowDec(true)
+  }
+
+  // handle equals
+  function handleEquals() {
+    // THIS IS WHEN YOU WANT EQUALS TO REMOVE ANY OPERATORS IN FRONT
+    // let result = ""
+    // let last = input.charAt(input.length - 1)
+    // let before = input.charAt(input.length - 2)
+    // let isOperator =
+    //   last === "*" || last === "+" || last === "-" || last === "/"
+    // let beforeIsOpr =
+    //   before === "*" || before === "+" || before === "-" || before === "/"
+    // if (isOperator && !beforeIsOpr) {
+    //   result = input.slice(0, input.length - 1)
+    //   result = eval(result)
+    // }
+    // if (isOperator && beforeIsOpr) {
+    //   result = input.slice(0, input.length - 2)
+    //   result = eval(result)
+    // }
+    let result = eval(input)
+    result = result.toString()
+    setInput(result)
+    setOutput(result)
   }
 
   // handle decimal
-  function handleDecimal() {
-    const last = calculatorData.charAt(calculatorData.length - 1)
-    if (!calculatorData.length) {
-      setInput("0.")
-      setCalculatorData("0.")
-    } else {
-      if (last === "*" || operators.includes(last)) {
+  function handleDecimal(e) {
+    if (allowDec) {
+      if (input === "0" || input === "") {
         setInput("0.")
-        setCalculatorData(`${calculatorData} 0.`)
+      } else if (input.charAt(input.length - 1) === ".") {
+        setInput(input)
       } else {
-        setInput(last === "." || input.includes(".") ? `${input}` : `${input}.`)
-        const formattedValue =
-          last === "." || input.includes(".")
-            ? `${calculatorData}`
-            : `${calculatorData}.`
-        setCalculatorData(formattedValue)
+        setInput((input += e.target.innerText))
       }
     }
+    setAllowDec(false)
   }
-
-  // handle operators
-  function handleOperators(value) {
-    if (calculatorData.length) {
-      setInput(`${value}`)
-      const beforeLastChat = calculatorData.charAt(calculatorData.length - 2)
-
-      const beforeLastChatIsOperator =
-        operators.includes(beforeLastChat) || beforeLastChat === "*"
-
-      const lastChat = calculatorData.charAt(calculatorData.length - 1)
-
-      const lastChatIsOperator =
-        operators.includes(lastChat) || lastChat === "*"
-
-      const validOp = value === "x" ? "*" : value
-      if (
-        (lastChatIsOperator && value !== "-") ||
-        (beforeLastChatIsOperator && lastChatIsOperator)
-      ) {
-        if (beforeLastChatIsOperator) {
-          const updatedValue = `${calculatorData.substring(
-            0,
-            calculatorData.length - 2
-          )}${value}`
-          setCalculatorData(updatedValue)
-        } else {
-          setCalculatorData(
-            `${calculatorData.substring(
-              0,
-              calculatorData.length - 1
-            )}${validOp}`
-          )
-        }
-      } else {
-        setCalculatorData(`${calculatorData}${validOp}`)
-      }
-    }
-  }
-
-  // handle input
-  function handleInput(value) {
-    const number = numbers.find((num) => num === value)
-    const operator = operators.find((opr) => opr === value)
-
-    switch (value) {
-      case "=":
-        handleEquals()
-        break
-      case "AC":
-        handleClear()
-        break
-      case number:
-        handleNumbers(value)
-        break
-      case ".":
-        handleDecimal()
-        break
-      case operator:
-        handleOperators(value)
-        break
-      default:
-        break
-    }
-  }
-
-  //handle output
-  function handleOuput() {
-    setOutput(calculatorData)
-  }
-  useEffect(() => {
-    handleOuput()
-  }, [calculatorData])
   return (
     <div id='wrapper'>
-      <div className='container'>
-        <Display input={input} output={output} />
+      <div id='container'>
+        <div id='results'>
+          <h2 id='output'>{output}</h2>
+          <h2 id='display'>{input}</h2>
+        </div>
         <div id='buttons'>
-          {data.map((button) => (
-            <Keyboard key={button.id} {...button} handleInput={handleInput} />
-          ))}
+          <button id='clear' onClick={handleClear}>
+            AC
+          </button>
+          <button id='divide' onClick={handleOperator}>
+            /
+          </button>
+          <button id='multiply' onClick={handleOperator}>
+            *
+          </button>
+          <button id='seven' onClick={handleNumber}>
+            7
+          </button>
+          <button id='eight' onClick={handleNumber}>
+            8
+          </button>
+          <button id='nine' onClick={handleNumber}>
+            9
+          </button>
+          <button id='subtract' onClick={handleOperator}>
+            -
+          </button>
+          <button id='four' onClick={handleNumber}>
+            4
+          </button>
+          <button id='five' onClick={handleNumber}>
+            5
+          </button>
+          <button id='six' onClick={handleNumber}>
+            6
+          </button>
+          <button id='add' onClick={handleOperator}>
+            +
+          </button>
+          <button id='one' onClick={handleNumber}>
+            1
+          </button>
+          <button id='two' onClick={handleNumber}>
+            2
+          </button>
+          <button id='three' onClick={handleNumber}>
+            3
+          </button>
+          <button id='equals' onClick={handleEquals}>
+            =
+          </button>
+          <button id='zero' onClick={handleNumber}>
+            0
+          </button>
+          <button id='decimal' onClick={handleDecimal}>
+            .
+          </button>
         </div>
       </div>
     </div>

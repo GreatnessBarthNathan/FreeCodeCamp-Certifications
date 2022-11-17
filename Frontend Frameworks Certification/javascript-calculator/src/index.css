@@ -3,11 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
-  background: whitesmoke;
+  background: darksalmon;
 }
-
 #wrapper {
   width: 100%;
   height: 100vh;
@@ -15,47 +13,46 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-.container {
-  width: 350px;
+#container {
+  width: 300px;
   height: 350px;
-  background: lightgray;
-  overflow: hidden;
-  background: black;
-  padding: 3px;
+  background: darkslategray;
+  border: 3px solid black;
+}
+#results {
+  text-align: right;
+  height: 20%;
+}
+#display,
+#output {
+  height: 50%;
   color: white;
-  font-size: 20px;
 }
 #buttons {
+  height: 80%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  height: 80%;
-  gap: 3px;
-}
-#buttons div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: darkslategray;
-  cursor: pointer;
-}
-#buttons div:hover {
-  border: 1px solid white;
-}
-
-.output {
-  height: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  padding: 0 15px;
-  font-size: 23px;
+  border-top: 2px solid black;
 }
 #clear,
 #zero {
   grid-column: span 2;
 }
+#clear {
+  background: red;
+  /* border: none; */
+}
 #equals {
   grid-row: span 2;
+}
+button {
+  font-size: 18px;
+  padding: 10px;
+  color: white;
+  background: darkslategray;
+  border: 1px solid black;
+}
+button:focus,
+button:hover {
+  border: 2px solid white;
 }
