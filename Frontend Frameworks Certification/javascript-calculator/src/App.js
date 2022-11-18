@@ -1,4 +1,5 @@
 import React from "react"
+import { BsArrowRight } from "react-icons/bs"
 
 function App() {
   let [input, setInput] = React.useState("0")
@@ -25,6 +26,7 @@ function App() {
   // handle operator
   function handleOperator(e) {
     let operator = e.target.innerText
+    operator = operator === "x" ? "*" : operator
     let last = input.charAt(input.length - 1)
     let before = input.charAt(input.length - 2)
     let lastIsOpr = last === "*" || last === "+" || last === "-" || last === "/"
@@ -40,6 +42,9 @@ function App() {
     }
     if (lastIsOpr && operator === "-") {
       setInput(input + "-")
+    }
+    if (lastIsOpr && last === "-" && operator === "-") {
+      setInput(input)
     }
     if (beforeIsOpr && last === "-" && operator === "-") {
       setInput(input)
@@ -104,7 +109,7 @@ function App() {
             /
           </button>
           <button id='multiply' onClick={handleOperator}>
-            *
+            x
           </button>
           <button id='seven' onClick={handleNumber}>
             7

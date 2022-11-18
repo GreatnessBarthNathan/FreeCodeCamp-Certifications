@@ -34,13 +34,12 @@ body {
   grid-template-columns: repeat(4, 1fr);
   border-top: 2px solid black;
 }
-#clear,
+#clear {
+  grid-column: span 2;
+  background: red;
+}
 #zero {
   grid-column: span 2;
-}
-#clear {
-  background: red;
-  /* border: none; */
 }
 #equals {
   grid-row: span 2;
